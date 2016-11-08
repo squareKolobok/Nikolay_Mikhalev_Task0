@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Task2
+namespace Task2 //todo почему не соблюден формат именования проекта?
 {
     class Program
     {
