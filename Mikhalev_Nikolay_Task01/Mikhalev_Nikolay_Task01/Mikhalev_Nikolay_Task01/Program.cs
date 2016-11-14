@@ -10,7 +10,7 @@ namespace Mikhalev_Nikolay_Task01
             do
             {
                 double a, b;
-                while (true)
+                while (true)//todo при некорректном вводе значений нужно выводить соответствующие сообщения об ошибках.
                 {
                     Console.Clear();
                     Console.WriteLine("Введите размеры прямоугольника a и b через Enter");

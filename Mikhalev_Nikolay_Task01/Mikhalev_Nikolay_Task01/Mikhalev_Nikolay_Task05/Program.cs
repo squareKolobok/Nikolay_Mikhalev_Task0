@@ -11,7 +11,7 @@ namespace Mikhalev_Nikolay_Task05
             {
                 Console.Clear();
                 Console.Write("Сумма всех элементов меньше 1000, кратных 3 и 5 =");
-                int result = SumArithmProgr(3, 333, 3) + SumArithmProgr(5, 199, 5) - SumArithmProgr(15, 66, 15);
+                int result = SumArithmProgr(3, 333, 3) + SumArithmProgr(5, 199, 5) - SumArithmProgr(15, 66, 15);//todo предполагалось, что ты будешь использовать циклы, но ладно
                 Console.WriteLine(result);
                 Console.Write("Желаете повторить?(y/n - н/т)");
                 continWork = Console.ReadLine();

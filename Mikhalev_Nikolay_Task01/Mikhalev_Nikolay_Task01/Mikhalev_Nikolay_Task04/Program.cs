@@ -15,9 +15,9 @@ namespace Mikhalev_Nikolay_Task04
                     Console.Clear();
                     Console.WriteLine("Введите колличество треугольников N");
                     if (int.TryParse(Console.ReadLine(), out N))
-                        break;
+                        break; 
                     else
-                        Console.WriteLine("Неверно введено N, повторите ввод");
+                        Console.WriteLine("Неверно введено N, повторите ввод");//todo пользователь не успевает прочесть это сообщение
                 }
                 for (int i = 0; i < N; i++)
                     WriteTriangle(i, N);
