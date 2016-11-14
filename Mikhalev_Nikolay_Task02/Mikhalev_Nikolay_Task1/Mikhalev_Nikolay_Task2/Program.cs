@@ -10,7 +10,7 @@ namespace Mikhalev_Nikolay_Task2
         static int width;
         static int length;
 
-        static void Main()
+        static void Main()//todo помним про форматирование? отступы перед условиями и циклами
         {
             string continWork;
             do

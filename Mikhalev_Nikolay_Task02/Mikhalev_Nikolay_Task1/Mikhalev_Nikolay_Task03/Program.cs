@@ -4,7 +4,7 @@ namespace Mikhalev_Nikolay_Task3
 {
     class Program
     {
-        static void Main()
+        static void Main()//todo помним про форматирование? отступы перед условиями и циклами
         {
             string continWork;
             do

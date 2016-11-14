@@ -4,7 +4,7 @@ namespace Mikhalev_Nikolay_Task1
 {
     class Program
     {
-        static void Main()
+        static void Main()//todo помним про форматирование? отступы перед условиями и циклами
         {
             Console.WriteLine("Введите размер массива");
             myArray arr = new myArray(ReadKey());
