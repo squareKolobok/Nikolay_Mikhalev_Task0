@@ -22,9 +22,9 @@
                 string key = Console.ReadLine();
                 double x, y, r;
 
-                switch (key)
+                switch (key)//todo синтаксически неверное оформление оператора
                 {
-                    case "1":
+                    case "1"://todo если блок case содержит более одной строки, то обязательно брать их в фигурные скобки (для повышения удобства чтения кода)
                         round = new Round();
                         Console.WriteLine("круг со стандартными параметрами задан(x=0,y=0,r=1)");
                         break;

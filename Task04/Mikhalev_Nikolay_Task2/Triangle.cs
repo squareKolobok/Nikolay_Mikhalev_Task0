@@ -4,13 +4,13 @@
 
     internal class Triangle
     {
-        private double a;
+        private double a;//todo использовать свойства
         private double b;
         private double c;
 
         public Triangle(double a, double b, double c)
         {
-            if (a > 0 && b > 0 && c > 0 && a + b > c && a + c > b && c + b > a)
+            if (a > 0 && b > 0 && c > 0 && a + b > c && a + c > b && c + b > a)//todo все проверки в свойствах
             {
                 this.a = a;
                 this.b = b;
