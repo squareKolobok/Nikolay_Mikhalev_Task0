@@ -16,7 +16,7 @@
                 Console.WriteLine("Введите строку");
                 string text = Console.ReadLine();
                 bool word = false;
-                int l = text.Length;
+                int l = text.Length;//todo мог бы и сразу в цикле запросить длину текста, лишняя переменная
 
                 for (int i = 0; i < l; i++)
                 {
