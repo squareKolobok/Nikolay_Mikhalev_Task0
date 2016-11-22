@@ -1,7 +1,6 @@
 ﻿namespace Mikhalev_Nikolay_Task1
 {
     using System;
-    using System.Threading;
 
     public class Program
     {
@@ -19,35 +18,47 @@
                                     "\t 3: создать круг с заданным центром и радиусом\n" +
                                     "\t 4: посмотреть периметр круга\n" +
                                     "\t 5: посмотреть площадь круга\n");
-                string key = Console.ReadLine();
+                int key;
+
+                while (!(int.TryParse(Console.ReadLine(), out key) && key > 0))
+                {
+                    Console.WriteLine("Данные введены не верно, повторите ввод");
+                }
+
                 double x, y, r;
 
-                switch (key)//todo синтаксически неверное оформление оператора
+                switch (key)
                 {
-                    case "1"://todo если блок case содержит более одной строки, то обязательно брать их в фигурные скобки (для повышения удобства чтения кода)
-                        round = new Round();
-                        Console.WriteLine("круг со стандартными параметрами задан(x=0,y=0,r=1)");
-                        break;
-                    case "2":
-                        Console.Write("Радиус круга r=");
-                        r = ReadKey();
-                        round = new Round(r);
-                        Console.WriteLine("круг с r={0} задан", r > 0 ? r : 1);
-                        break;
-                    case "3":
-                        Console.Write("Введите точку абсцисс x=");
-                        x = ReadKey();
-                        Console.Write("Введите точку ординат y=");
-                        y = ReadKey();
-                        Console.Write("Радиус круга r=");
-                        r = ReadKey();
-                        round = new Round(r);
-                        Console.WriteLine("круг с параметрами x={0}, y={1}, r={2} задан", x, y, r > 0 ? r : 1);
-                        break;
-                    case "4":
+                    case 1:
+                        {
+                            round = new Round();
+                            Console.WriteLine("круг со стандартными параметрами задан(x=0,y=0,r=1)");
+                            break;
+                        }
+                    case 2:
+                        {
+                            Console.Write("Радиус круга r=");
+                            r = ReadKey();
+                            round = new Round(r);
+                            Console.WriteLine("круг с r={0} задан", r > 0 ? r : 1);
+                            break;
+                        }
+                    case 3:
+                        {
+                            Console.Write("Введите точку абсцисс x=");
+                            x = ReadKey();
+                            Console.Write("Введите точку ординат y=");
+                            y = ReadKey();
+                            Console.Write("Радиус круга r=");
+                            r = ReadKey();
+                            round = new Round(r);
+                            Console.WriteLine("круг с параметрами x={0}, y={1}, r={2} задан", x, y, r > 0 ? r : 1);
+                            break;
+                        }
+                    case 4:
                         Console.WriteLine("Периметр круга равен {0}", round.Perimeter());
                         break;
-                    case "5":
+                    case 5:
                         Console.WriteLine("Площадь круга равна {0}", round.Area());
                         break;
                     default:
@@ -66,13 +77,8 @@
         {
             double key;
 
-            while (true)
+            while (!double.TryParse(Console.ReadLine(), out key))
             {
-                if (double.TryParse(Console.ReadLine(), out key) && key > 0)
-                {
-                    break;
-                }
-
                 Console.WriteLine("Данные введены не верно, повторите ввод");
             }
 

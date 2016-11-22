@@ -17,16 +17,22 @@
                                     "\t 2: создать треугольник с заданными параметрами\n" +
                                     "\t 3: посмотреть периметр треугольника\n" +
                                     "\t 4: посмотреть площадь треугольника\n");
-                string key = Console.ReadLine();
+                int key;
+
+                while (!(int.TryParse(Console.ReadLine(), out key) && key > 0))
+                {
+                    Console.WriteLine("Данные введены не верно, повторите ввод");
+                }
+
                 double a, b, c;
 
                 switch (key)
                 {
-                    case "1":
+                    case 1:
                         tr = new Triangle();
                         Console.WriteLine("треугольник со стандартными параметрами задан (a=1, b=1, c=1)");
                         break;
-                    case "2":
+                    case 2:
                         Console.Write("Введите сторону a=");
                         a = ReadKey();
                         Console.Write("Введите сторону b=");
@@ -36,10 +42,10 @@
                         tr = new Triangle(a, b, c);
                         Console.WriteLine("треугольник задан исходя из введеных значений");
                         break;
-                    case "3":
+                    case 3:
                         Console.WriteLine("Периметр треугольника равен {0}", tr.Perimeter());
                         break;
-                    case "4":
+                    case 4:
                         Console.WriteLine("Площадь треугольника равна {0}", tr.Area());
                         break;
                     default:
@@ -58,13 +64,8 @@
         {
             double key;
 
-            while (true)
+            while (!(double.TryParse(Console.ReadLine(), out key) && key > 0))
             {
-                if (double.TryParse(Console.ReadLine(), out key) && key > 0)
-                {
-                    break;
-                }
-
                 Console.WriteLine("Данные введены не верно, повторите ввод");
             }
 

@@ -19,55 +19,71 @@
                                     "\t 4: найти позицию указанного элемента\n" +
                                     "\t 5: сравнить две строки\n" +
                                     "\t 6: вывести строку\n");
-                string key = Console.ReadLine();
+                int key;
+
+                while (!(int.TryParse(Console.ReadLine(), out key) && key > 0))
+                {
+                    Console.WriteLine("Данные введены не верно, повторите ввод");
+                }
+
                 char[] charArr;
                 MyString str2;
 
                 switch (key)
                 {
-                    case "1":
-                        str = new MyString();
-                        Console.WriteLine("Пустая строка создана");
-                        break;
-                    case "2":
-                        Console.WriteLine("Введите новую строку");
-                        charArr = Console.ReadLine().ToCharArray();
-                        str = new MyString(charArr);
-                        Console.WriteLine("Введенная строка создана");
-                        break;
-                    case "3":
-                        Console.WriteLine("Введите новую строку");
-                        charArr = Console.ReadLine().ToCharArray();
-                        str2 = new MyString(charArr);
-                        str += str2;
-                        Console.WriteLine("Получившийся результат: {0}", str.ToString());
-                        break;
-                    case "4":
-                        char a;
-
-                        while (true)
+                    case 1:
                         {
-                            Console.WriteLine("Введите символ позицию которого хотите найти (считывается только первый введенный символ)");
-                            string s = Console.ReadLine();
+                            str = new MyString();
+                            Console.WriteLine("Пустая строка создана");
+                            break;
+                        }
+                    case 2:
+                        {
+                            Console.WriteLine("Введите новую строку");
+                            charArr = Console.ReadLine().ToCharArray();
+                            str = new MyString(charArr);
+                            Console.WriteLine("Введенная строка создана");
+                            break;
+                        }
+                    case 3:
+                        {
+                            Console.WriteLine("Введите новую строку");
+                            charArr = Console.ReadLine().ToCharArray();
+                            str2 = new MyString(charArr);
+                            str += str2;
+                            Console.WriteLine("Получившийся результат: {0}", str.ToString());
+                            break;
+                        }
+                    case 4:
+                        {
+                            char a;
 
-                            if (s.Length > 0)
+                            while (true)
                             {
-                                a = s[0];
-                                break;
+                                Console.WriteLine("Введите символ позицию которого хотите найти (считывается только первый введенный символ)");
+                                string s = Console.ReadLine();
+
+                                if (s.Length > 0)
+                                {
+                                    a = s[0];
+                                    break;
+                                }
+
+                                Console.WriteLine("Повторите ввод");
                             }
 
-                            Console.WriteLine("Повторите ввод");
+                            Console.WriteLine("Данный символ находится на {0} месте", str.IndexOf(a));
+                            break;
                         }
-
-                        Console.WriteLine("Данный символ находится на {0} месте", str.IndexOf(a));
-                        break;
-                    case "5":
-                        Console.WriteLine("Введите новую строку");
-                        charArr = Console.ReadLine().ToCharArray();
-                        str2 = new MyString(charArr);
-                        Console.WriteLine("Данные строки {0}равны", str.Equals(str2) ? string.Empty : "не ");
-                        break;
-                    case "6":
+                    case 5:
+                        {
+                            Console.WriteLine("Введите новую строку");
+                            charArr = Console.ReadLine().ToCharArray();
+                            str2 = new MyString(charArr);
+                            Console.WriteLine("Данные строки {0}равны", str.Equals(str2) ? string.Empty : "не ");
+                            break;
+                        }
+                    case 6:
                         Console.WriteLine("Хранящаяся строка: {0}", str.ToString());
                         break;
                     default:

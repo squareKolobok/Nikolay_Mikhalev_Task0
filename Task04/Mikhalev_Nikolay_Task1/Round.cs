@@ -4,15 +4,27 @@
 
     internal class Round
     {
-        private double x;//todo лучше использовать свойства
-        private double y;
         private double r;
+        public double X { get; set; }
+        public double Y { get; set; }
+
+        public double R
+        {
+            get
+            {
+                return r;
+            }
+            private set
+            {
+                r = value > 0 ? value : 1;
+            }
+        }
 
         public Round(double x, double y, double r)
         {
-            this.r = r > 0 ? r : 1;//todo валидацию значения лучше проводить в свойстве в теле set 
-            this.x = x;
-            this.y = 0;
+            R = r;
+            X = x;
+            Y = y;
         }
 
         public Round(double r) 
@@ -27,12 +39,12 @@
 
         public double Perimeter()
         {
-            return Math.PI * 2 * r;
+            return Math.PI * 2 * R;
         }
 
         public double Area()
         {
-            return Math.PI * Math.Pow(this.r, 2);//todo когда ты обращаешься к полям (методам, свойствам) данного класса не обязательно перед ними ставить this
+            return Math.PI * Math.Pow(R, 2);
         }
     }
 }

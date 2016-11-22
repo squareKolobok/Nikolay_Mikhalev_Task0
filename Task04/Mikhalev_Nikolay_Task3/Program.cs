@@ -18,49 +18,53 @@
                                     "\t 3: узнать ФИО человека\n" +
                                     "\t 4: узнать дату рождения человека\n" +
                                     "\t 5: узнать возраст человека\n");
-                string key = Console.ReadLine();
+                int key = ReadKey();
 
                 switch (key)
                 {
-                    case "1":
-                        usr = new User();
-                        Console.WriteLine("Человек со стандартными параметрами задан");
-                        break;
-                    case "2":
-                        Console.WriteLine("Введите фамилию человека");
-                        string surname = Console.ReadLine();
-                        Console.WriteLine("Введите имя человека");
-                        string name = Console.ReadLine();
-                        Console.WriteLine("Введите отчество человека");
-                        string patronymic = Console.ReadLine();
-                        Console.WriteLine("Введите год рождения человека");
-                        int y = ReadKey();
-                        Console.WriteLine("Введите месяц рождения человека");
-                        int m = ReadKey();
-                        Console.WriteLine("Введите день рождения человека");
-                        int d = ReadKey();
-                        Console.WriteLine("Введите возраст человека");
-                        int age = ReadKey();
-
-                        try
+                    case 1:
                         {
-                            usr = new User(surname, name, patronymic, new DateTime(y, m, d), age);
-                            Console.WriteLine("человек с данными параметрами создан");
+                            usr = new User();
+                            Console.WriteLine("Человек со стандартными параметрами задан");
+                            break;
                         }
-                        catch (ArgumentOutOfRangeException)
+                    case 2:
                         {
-                            Console.WriteLine("Неверно введена дата рождения");
-                        }
+                            Console.WriteLine("Введите фамилию человека");
+                            string surname = Console.ReadLine();
+                            Console.WriteLine("Введите имя человека");
+                            string name = Console.ReadLine();
+                            Console.WriteLine("Введите отчество человека");
+                            string patronymic = Console.ReadLine();
+                            Console.WriteLine("Введите год рождения человека");
+                            int y = ReadKey();
+                            Console.WriteLine("Введите месяц рождения человека");
+                            int m = ReadKey();
+                            Console.WriteLine("Введите день рождения человека");
+                            int d = ReadKey();
 
-                        break;
-                    case "3":
+                            try
+                            {
+                                usr = new User(surname, name, patronymic, new DateTime(y, m, d));
+                                Console.WriteLine("человек с данными параметрами создан");
+                            }
+                            catch (ArgumentOutOfRangeException)
+                            {
+                                Console.WriteLine("Неверно введена дата рождения");
+                            }
+
+                            break;
+                        }
+                    case 3:
                         Console.WriteLine("ФИО человека: {0} {1} {2}", usr.Surname, usr.Name, usr.Patronymic);
                         break;
-                    case "4":
-                        DateTime date = usr.Birthdate;
-                        Console.WriteLine("Дата рождения человека {0}.{1}.{2} (dd.mm.yyyy)", date.Day, date.Month, date.Year);
-                        break;
-                    case "5":
+                    case 4:
+                        {
+                            DateTime date = usr.Birthdate;
+                            Console.WriteLine("Дата рождения человека {0}.{1}.{2} (dd.mm.yyyy)", date.Day, date.Month, date.Year);
+                            break;
+                        }
+                    case 5:
                         Console.WriteLine("Возраст человека {0}", usr.Age);
                         break;
                     default:
@@ -79,14 +83,11 @@
         {
             int key;
 
-            while (true)
+            while (!(int.TryParse(Console.ReadLine(), out key) && key > 0))
             {
-                if (int.TryParse(Console.ReadLine(), out key) && key > 0)
-                {
-                    break;
-                }
                 Console.WriteLine("Данные введены не верно, повторите ввод");
             }
+
             return key;
         }
     }

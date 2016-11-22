@@ -4,24 +4,40 @@
 
     internal class Triangle
     {
-        private double a;//todo использовать свойства
+        private double a;
         private double b;
         private double c;
 
+        private double A
+        {
+            set { a = value > 0 ? value : 1; }
+        }
+
+        private double B
+        {
+            set { b = value > 0 ? value : 1; }
+        }
+
+        private double C 
+        {
+            set
+            {
+                if (value > 0 && a + b > value && a + value > b && value + b > a)
+                    c = value;
+                else
+                {
+                    a = 1;
+                    b = 1;
+                    c = 1;
+                }
+            }
+        }
+
         public Triangle(double a, double b, double c)
         {
-            if (a > 0 && b > 0 && c > 0 && a + b > c && a + c > b && c + b > a)//todo все проверки в свойствах
-            {
-                this.a = a;
-                this.b = b;
-                this.c = c;
-            }
-            else
-            {
-                this.a = 1;
-                this.b = 1;
-                this.c = 1;
-            }
+                A = a;
+                B = b;
+                C = c;
         }
 
         public Triangle()
