@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Mikhalev_Nikolay_Task4.Map">
+    <Position X="6.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAIAAAAAAAAEAAACA=</HashCode>
+      <FileName>Map.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mikhalev_Nikolay_Task4.Bonus" Collapsed="true">
+    <Position X="11.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAQAAAAAAAAAAAAAAAAAAABgwAAAAAA=</HashCode>
+      <FileName>Bonus.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Map" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Mikhalev_Nikolay_Task4.Cherry">
+    <Position X="11.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Cherry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mikhalev_Nikolay_Task4.Apple">
+    <Position X="9" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Apple.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mikhalev_Nikolay_Task4.Melon">
+    <Position X="13.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>melon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mikhalev_Nikolay_Task4.Monster">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAIAAAAAAAAACABgwAAIAAA=</HashCode>
+      <FileName>Monster.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Map" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Mikhalev_Nikolay_Task4.wolf">
+    <Position X="1" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>wolf.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mikhalev_Nikolay_Task4.bear">
+    <Position X="3.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>bear.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mikhalev_Nikolay_Task4.hamster">
+    <Position X="5.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>hamster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mikhalev_Nikolay_Task4.mosquito">
+    <Position X="7.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>mosquito.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mikhalev_Nikolay_Task4.Wall">
+    <Position X="3.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAABgwAAAAAA=</HashCode>
+      <FileName>Wall.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Map" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Mikhalev_Nikolay_Task4.Stone">
+    <Position X="1" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Stone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mikhalev_Nikolay_Task4.Tree">
+    <Position X="3.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mikhalev_Nikolay_Task4.Lava">
+    <Position X="5.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Lava.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mikhalev_Nikolay_Task4.Player">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAADAAAAAAAAAAAIABAAAAAQAACADgQAAQAAg=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Map" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

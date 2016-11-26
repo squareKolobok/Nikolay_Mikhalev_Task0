@@ -51,7 +51,7 @@
                             y = ReadKey();
                             Console.Write("Радиус круга r=");
                             r = ReadKey();
-                            round = new Round(r);
+                            round = new Round(x, y, r);
                             Console.WriteLine("круг с параметрами x={0}, y={1}, r={2} задан", x, y, r > 0 ? r : 1);
                             break;
                         }
