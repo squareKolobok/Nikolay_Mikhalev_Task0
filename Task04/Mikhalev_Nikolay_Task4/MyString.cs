@@ -36,7 +36,7 @@
             return str1;
         }
 
-        public bool Equals(MyString value)
+        public bool Equals(MyString value)//todo нужно переопределять метод базового класса, а не перезаписывать своим новым + реализовать GetHashCode
         {
             bool res = true;
 
