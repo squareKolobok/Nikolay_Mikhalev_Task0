@@ -2,7 +2,7 @@
 {
     using System;
 
-    public struct Coord
+    public struct Coord//todo в отдельный файл
     {
         public double x;
         public double y;

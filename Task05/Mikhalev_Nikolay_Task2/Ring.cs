@@ -13,7 +13,7 @@
             }
             private set
             {
-                internalR = value > 0 && value < R ? value : 0.5;
+                internalR = value > 0 && value < R ? value : 0.5;//todo hardcode
             }
         }
 
@@ -32,7 +32,7 @@
         public Ring()
             : base()
         {
-            InternalR = 1;
+            InternalR = 1;//todo hardcode
         }
 
         public override double Perimeter()
