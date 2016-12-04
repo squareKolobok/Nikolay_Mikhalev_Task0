@@ -2,7 +2,6 @@
 {
     using System;
 
-
     public class Ring : Circle
     {
         private double rInt;

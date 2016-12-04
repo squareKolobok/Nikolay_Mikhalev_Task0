@@ -21,5 +21,10 @@ namespace Mikhalev_Nikolay_Task4
         {
             throw new System.NotImplementedException();
         }
+
+        public override bool IsMoveWall()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

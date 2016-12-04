@@ -36,17 +36,35 @@
             return str1;
         }
 
-        public bool Equals(MyString value)//todo нужно переопределять метод базового класса, а не перезаписывать своим новым + реализовать GetHashCode
+        public override bool Equals(object obj)
         {
-            bool res = true;
+            if (obj is MyString)
+            {
+                bool res = true;
+                MyString value = (MyString)obj;
 
-            if (value.Length == Length)
-                for (int i = 0; i < Length; i++)
-                    res = res && (arr[i] == value[i]);
+                if (value.Length == Length)
+                    for (int i = 0; i < Length; i++)
+                        res = res && (arr[i] == value[i]);
+                else
+                    res = false;
+
+                return res;
+            }
             else
-                res = false;
+            {
+                return false;
+            }
+        }
 
-            return res;
+        public override int GetHashCode()
+        {
+            int h = Length;
+            foreach (char c in arr)
+            {
+                h = h ^ c;
+            }
+            return h;
         }
 
         public int IndexOf(char value, int startIndex)

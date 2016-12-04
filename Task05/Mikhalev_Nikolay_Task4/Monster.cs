@@ -54,5 +54,7 @@ namespace Mikhalev_Nikolay_Task4
         public abstract void SearchPlayer();
 
         public abstract void RedusHealth();
+
+        public abstract bool IsMoveWall();
     }
 }

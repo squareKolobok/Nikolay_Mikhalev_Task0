@@ -2,12 +2,6 @@
 {
     using System;
 
-    public struct Coord//todo в отдельный файл
-    {
-        public double x;
-        public double y;
-    }
-
     public class Circle : Figure
     {
         private double r;

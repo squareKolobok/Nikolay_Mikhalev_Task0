@@ -4,6 +4,7 @@
 
     internal class Ring : Round
     {
+        private const double IntR= 0.5;
         private double internalR;
         public double InternalR
         {
@@ -13,7 +14,7 @@
             }
             private set
             {
-                internalR = value > 0 && value < R ? value : 0.5;//todo hardcode
+                internalR = value > 0 && value < R ? value : IntR;
             }
         }
 
@@ -32,7 +33,7 @@
         public Ring()
             : base()
         {
-            InternalR = 1;//todo hardcode
+            InternalR = IntR;
         }
 
         public override double Perimeter()
