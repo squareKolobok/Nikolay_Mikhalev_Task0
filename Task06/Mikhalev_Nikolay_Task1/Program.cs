@@ -5,7 +5,7 @@
 
     public class Program
     {
-        public static void Main()
+        public static void Main()//todo "каждый второй" - это не равно "второй". Как на физкультуре: "На первый-второй рассчитайтесь". Т.о. Сначала выходят все четные, потом все четные до тех пор, пока не останется один.
         {
             string cointWork;
 
@@ -35,11 +35,11 @@
 
                 while (list.Count > 1)
                 {
-                    bool endElem = false;
+                    bool endElem = false;//todo 1
 
-                    if (pos + 1 == list.Count)
+                    if (pos + 1 == list.Count)//todo 2 вот эти три строки можно заменить на одну bool endElem = pos + 1 == list.Count;
                     {
-                        endElem = true;
+                        endElem = true;//todo 3 
                     }
 
                     Console.WriteLine();
