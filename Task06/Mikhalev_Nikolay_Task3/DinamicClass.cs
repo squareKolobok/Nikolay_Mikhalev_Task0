@@ -5,7 +5,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    internal class DinamicArray<T> : IEnumerable<T>, IEnumerator<T>
+    internal class DinamicArray<T> : IEnumerable<T>, IEnumerator<T>, IDisposable//todo "на базе обычного массива" можно было бы отнаследоваться от Array. Требования о создания дженерик массива не было, так что можно было бы упустить это усложнение логики.
     {
         private T[] data;
         /// <summary>
@@ -40,7 +40,7 @@
         /// <param name="length">длина массива</param>
         public DinamicArray(int length)
         {
-            length = length > 0 ? length : 8;
+            length = length > 0 ? length : 8;//todo хардкод
             data = new T[length];
             Length = length;
             Capacity = 0;
@@ -50,7 +50,7 @@
         /// Задание динамического массива по умолчанию
         /// </summary>
         public DinamicArray()
-            : this(8)
+            : this(8)//todo хардкод
         {
         }
 
@@ -92,9 +92,9 @@
         /// добавление коллекции, реализующей интерфейс IEnumerable<T> в массив
         /// </summary>
         /// <param name="enumer">входящая коллекция</param>
-        public void AddRange(IEnumerable<T> enumer)
+        public void AddRange(IEnumerable<T> enumer)//todo возможно передать null 
         {
-            if (Capacity + enumer.Count() <= Length)
+            if (Capacity + enumer.Count() <= Length)//todo и приложение упадет здесь
             {
                 foreach (T elem in enumer)
                 {
@@ -136,7 +136,7 @@
                 Array.Copy(data, pos + 1, data, pos, Capacity - pos - 1);
                 return true;
             }
-            else
+            else//todo не нужен
             {
                 return false;
             }
@@ -210,39 +210,48 @@
         }
 
         //что с этим делать не понял
-        #region IDisposable Support
-        private bool disposedValue = false; // Для определения избыточных вызовов
-
-        protected virtual void Dispose(bool disposing)
+        public void Dispose()
         {
-            if (!disposedValue)
+            //todo в этом методе ты должен освободить занимаемые ресурсы. В твоем случае - массив.
+            if (data != null)
             {
-                if (disposing)
-                {
-                    // TODO: освободить управляемое состояние (управляемые объекты).
-                }
-
-                // TODO: освободить неуправляемые ресурсы (неуправляемые объекты) и переопределить ниже метод завершения.
-                // TODO: задать большим полям значение NULL.
-
-                disposedValue = true;
+                data = null;
             }
         }
 
-        // TODO: переопределить метод завершения, только если Dispose(bool disposing) выше включает код для освобождения неуправляемых ресурсов.
-        // ~DinamicClass() {
-        //   // Не изменяйте этот код. Разместите код очистки выше, в методе Dispose(bool disposing).
-        //   Dispose(false);
-        // }
+        #region IDisposable Support
+        //private bool disposedValue = false; // Для определения избыточных вызовов
 
-        // Этот код добавлен для правильной реализации шаблона высвобождаемого класса.
-        public void Dispose()
-        {
-            // Не изменяйте этот код. Разместите код очистки выше, в методе Dispose(bool disposing).
-            Dispose(true);
-            // TODO: раскомментировать следующую строку, если метод завершения переопределен выше.
-            // GC.SuppressFinalize(this);
-        }
+        //protected virtual void Dispose(bool disposing)
+        //{
+        //    if (!disposedValue)
+        //    {
+        //        if (disposing)
+        //        {
+        //            // TODO: освободить управляемое состояние (управляемые объекты).
+        //        }
+
+        //        // TODO: освободить неуправляемые ресурсы (неуправляемые объекты) и переопределить ниже метод завершения.
+        //        // TODO: задать большим полям значение NULL.
+
+        //        disposedValue = true;
+        //    }
+        //}
+
+        //// TODO: переопределить метод завершения, только если Dispose(bool disposing) выше включает код для освобождения неуправляемых ресурсов.
+        //// ~DinamicClass() {
+        ////   // Не изменяйте этот код. Разместите код очистки выше, в методе Dispose(bool disposing).
+        ////   Dispose(false);
+        //// }
+
+        //// Этот код добавлен для правильной реализации шаблона высвобождаемого класса.
+        //public void Dispose()
+        //{
+        //    // Не изменяйте этот код. Разместите код очистки выше, в методе Dispose(bool disposing).
+        //    Dispose(true);
+        //    // TODO: раскомментировать следующую строку, если метод завершения переопределен выше.
+        //    // GC.SuppressFinalize(this);
+        //}
         #endregion
     }
 }

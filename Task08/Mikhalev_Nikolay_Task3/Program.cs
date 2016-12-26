@@ -34,7 +34,7 @@
 
                 sw.Restart();
                 Console.WriteLine("Массив с перебором при помощи анонимного делегата");
-                search.WriteArr(search.DelegateSearch(delegate (double elem)
+                search.WriteArr(search.DelegateSearch(delegate (double elem)//todo анонимный делегат лучше писать через лямбду: elem => { return elem >= 0; }
                 {
                     return elem >= 0;
                 }));
