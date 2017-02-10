@@ -1,0 +1,44 @@
+.title{
+	background: rgb(6,144,207);
+	border: 3px solid rgb(0, 117, 178);
+	color: rgb(255,255,255);
+	width: 450px;
+	font-family: Arial, Calibri;
+}
+.regist{
+	padding-left: 20px;
+	padding-bottom: 25px;
+	font-size: 14pt;
+	font-weight: 100;
+}
+h2{
+	border-bottom: 1px solid rgb(255,255,255);
+	padding-left: 20px;
+	padding-bottom: 10px;
+	paddind-top: 10px;
+	font-size: 22pt;
+	font-weight: 400;
+}
+#divpass{
+	position: left;
+	float: left;
+	margin-right: 20px;
+}
+#email{
+	width: 360px;
+}
+.pass{
+	width: 170px;
+}
+input{
+	border: 1px double rgb(166,172,180);
+ 	border-radius: 0px;
+}
+#res{
+	background: rgb(255,223,127);
+	margin-top:10px;
+	border: none;
+	font-size:11pt;
+	font-weight: 100;
+	height: 30px;
+}

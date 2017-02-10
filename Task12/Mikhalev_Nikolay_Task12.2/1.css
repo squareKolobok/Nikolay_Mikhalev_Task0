@@ -1,0 +1,126 @@
+.head{
+	text-align: center;
+	border: 1px solid rgb(0,0,0);
+	height: 100px;
+	color: rgb(0,44,123);
+	font-weight: 700;
+	font-size: 22pt;
+}
+.head div{
+	padding: 32px;
+}
+.menu{
+	width: 200px;
+	border: 1px solid rgb(0,0,0);
+	border-top: none;
+	height: inherit;
+	float: left;
+	margin-right: 10px;
+}
+.titleMenu{
+	color: rgb(0,44,123);
+	font-size: 18pt;
+	font-weight: 700;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+.textMenu div{
+	padding-left: 10px;
+	padding-top:10px;
+	font-size: 12pt;
+	font-family: Calibri;
+	text-decoration: underline;
+	color: rgb(0,112,192);
+}
+.rightColumn{
+	height: inherit;
+	border: 1px solid rgb(0,0,0);
+	border-top: none;
+	width: 200px;
+	float: right;
+	margin-left: 10px;
+}
+.rightColumn div{
+	padding-top: 10px;
+	padding-left: 10px;
+	font-family: Calibri;
+}
+.inputTextR{
+	margin-top: 10px;
+	margin-left: 5px;
+	border: 1px double rgb(100,100,100);
+ 	border-radius: 0px;
+	height: 30px;
+	width: 185px;
+	padding-left: 7px;
+}
+#selUsr{
+	margin-top: 10px;
+	margin-left: 5px;
+	width: 185px;
+	height: 30px;
+	border: 1px double rgb(0,0,0);
+}
+#returnMe{
+	margin-top: 15px;
+	float: left;
+}
+#LogIn{
+	border: 2px double rgb(0,0,0);
+	background: rgb(217,217,217);
+	border-radius: 8px;
+	margin-top: 10px;
+	margin-left: 5px;
+	width: 185px;
+	height: 30px;
+	text-align:left;
+	font-size: 10pt;
+	font-family: Calibri;
+}
+.titleData{
+	text-align: center;
+	color: rgb(0,44,123);
+	font-weight: 700;
+	font-size: 18pt;
+	padding: 10px;
+}
+.img3h{
+	margin-top: 7px;
+	margin-right: 10px;
+	float: right;
+	width: 200px;
+	height: 150px
+}
+li{
+	margin-left: 240px;
+	padding-left: 30px;
+}
+.ital{
+	font-style: italic;
+}
+.bold{
+	font-weight: 600;
+}
+.titleListTable{
+	margin-left: 210px;
+	color: rgb(0,44,123);
+	font-weight: 700;
+	font-size: 16pt;
+}
+td{	
+	border: 3px double rgb(0,0,0);
+}
+table{
+	margin-left: 210px;
+}
+.basement{
+	border: 1px solid rgb(0,0,0);
+	position: relative;
+	margin-top: 0;
+	padding-left: 5px;
+	float: bottom;
+}
+.main{
+	height: 100%;
+	width: 100%;
+}
