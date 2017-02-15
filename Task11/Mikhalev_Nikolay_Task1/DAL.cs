@@ -54,18 +54,12 @@
                 AddParameter<int>(command, "@SelEmployeeID", NewOrder.EmployeeID, DbType.Int32);
                 AddParameter<int>(command, "@SelShipVia", ShipVia, DbType.Int32);
                 AddParameter<decimal>(command, "@SelFreight", NewOrder.Freight, DbType.Decimal);
-                /*AddParameter<string>(command, "@SelShipName", NewOrder.ShipName, DbType.String);
-                AddParameter<string>(command, "@SelShipAddress", NewOrder.ShipAddress, DbType.String);
-                AddParameter<string>(command, "@SelShipCity", NewOrder.ShipCity, DbType.String);
-                AddParameter<string>(command, "@SelShipRegion", NewOrder.ShipRegion, DbType.String);
-                AddParameter<string>(command, "@SelShipPostalCodet", NewOrder.ShipPostalCode, DbType.String);
-                AddParameter<string>(command, "@SelShipCountry", NewOrder.ShipCounty, DbType.String);*/
-                AddParameter<string>(command, "@SelShipName", "dsa", DbType.String);
-                AddParameter<string>(command, "@SelShipAddress", "sad", DbType.String);
-                AddParameter<string>(command, "@SelShipCity", "vvz", DbType.String);
-                AddParameter<string>(command, "@SelShipRegion", "ef", DbType.String);
-                AddParameter<string>(command, "@SelShipPostalCode", "dsa", DbType.String);
-                AddParameter<string>(command, "@SelShipCountry", "dgfa", DbType.String);
+                AddParameter<string>(command, "@SelShipName", NewOrder.ShipName ?? String.Empty, DbType.String);
+                AddParameter<string>(command, "@SelShipAddress", NewOrder.ShipAddress ?? String.Empty, DbType.String);
+                AddParameter<string>(command, "@SelShipCity", NewOrder.ShipCity ?? String.Empty, DbType.String);
+                AddParameter<string>(command, "@SelShipRegion", NewOrder.ShipRegion ?? String.Empty, DbType.String);
+                AddParameter<string>(command, "@SelShipPostalCode", NewOrder.ShipPostalCode ?? String.Empty, DbType.String);
+                AddParameter<string>(command, "@SelShipCountry", NewOrder.ShipCounty ?? String.Empty, DbType.String);
 
                 int i = command.ExecuteNonQuery();
                 connection.Close();
