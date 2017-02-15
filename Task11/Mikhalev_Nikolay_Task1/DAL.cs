@@ -78,7 +78,7 @@
                 var command = connection.CreateCommand();
                 DateTime date = DateTime.Now;
                 command.CommandText = "UPDATE Orders SET ShippedDate = CONVERT(datetime, '" +
-                    date.Year + "-" + date.Month + "-" + date.Day + " " +
+                    date.Year + "-" + date.Month + "-" + date.Day + " " +//todo так не пишут. Используй форматирование даты к определенному шаблону.
                     date.Hour + ":" + date.Minute + ":" + date.Second + "." + date.Millisecond +
                     "', 121) WHERE OrderID = @SelectOrderId AND ShippedDate IS NULL AND NOT (OrderDate IS NULL)";
                 AddParameter<int>(command, "@SelectOrderId", OrderID, DbType.Int32);
@@ -144,7 +144,7 @@
                 while (reader.Read())
                 {
 
-                    string a = reader.GetString(0);
+                    string a = reader.GetString(0);//todo очень плохо давать непонятные имена переменным, даже временным.
                     decimal b = reader.GetDecimal(1);
                     int c = reader.GetInt16(2);
                     int d = reader.GetInt32(3);
