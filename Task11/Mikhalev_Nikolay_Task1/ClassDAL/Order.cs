@@ -1,4 +1,4 @@
-﻿namespace Mikhalev_Nikolay_Task1.ClassDAL
+﻿namespace Mikhalev_Nikolay_Task1.ClassDAL//todo не очень корректное имя для папки, лучше назвать Models
 {
     using System;
 

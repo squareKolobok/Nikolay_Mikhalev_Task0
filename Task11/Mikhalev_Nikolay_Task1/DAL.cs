@@ -7,14 +7,14 @@
     using System.Data;
     using System.Data.SqlClient;
 
-    public class DAL : IDAL
+    public class DAL : IDAL//todo следи, пожалуйста, за чистотой проекта в плане неиспользуемых файлов. ConsoleApplication1 явно лишнее. Лишние файлы в большом проекте это боль (никто не помнит, для чего они и боятся их трогать)...
     {
 
         public DAL()
         {
         }
 
-        private string connectionString = ConfigurationManager.ConnectionStrings["NorthwindConection"].ConnectionString;
+        private string connectionString = ConfigurationManager.ConnectionStrings["NorthwindConection"].ConnectionString;//todo лучше с клиента получать строку подключения
 
         private void AddParameter<T>(IDbCommand command, string namePar, T value, DbType type)
         {
@@ -62,7 +62,7 @@
                 AddParameter<string>(command, "@SelShipCountry", NewOrder.ShipCounty ?? String.Empty, DbType.String);
 
                 int i = command.ExecuteNonQuery();
-                connection.Close();
+                connection.Close();//todo секция using вызывает метод Close автоматом, так что можно не писать
             }
         }
 
