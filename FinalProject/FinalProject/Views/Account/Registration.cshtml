@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Регистрация</h2>
+<p>Введите логин и пароль для нового пользователя</p>
+@using (Html.BeginForm("Registration", "Account", FormMethod.Post))
+{
+    <div>
+        @ViewBag.Message
+    </div>
+    <div>
+        Введите логин (от 3 до 15 символов):
+    </div>
+    <input type="text" name="Name" />
+    <div>
+        Введите пароль (от 3 до 30 символов):
+    </div>
+    <input type="text" name="passwd1" />
+    <div>
+        Повторите пароль:
+    </div>
+    <input type="text" name="passwd2" />
+    <p><input type="submit" value="Зарегестрироваться" /></p>
+}

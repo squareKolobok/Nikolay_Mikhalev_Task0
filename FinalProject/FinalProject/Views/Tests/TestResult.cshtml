@@ -1,0 +1,21 @@
+﻿@using DAL.Models
+@{
+    ViewBag.Title = "Результаты всех тестов";
+}
+
+<h2>Результаты всех тестов</h2>
+<table>
+    <tr>
+        <td>Название теста</td>
+        <td>Колличество правильных ответов</td>
+        <td>Время прохождения</td>
+    </tr>
+    @foreach(ResultTest x in Model)
+    {
+        <tr>
+            <td>@x.TestName</td>
+            <td>@x.CountTrueAnswers</td>
+            <td>@((int)x.Time / 60):@(x.Time % 60)</td>
+        </tr>
+    }
+</table>

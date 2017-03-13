@@ -1,0 +1,16 @@
+﻿@using DAL.Models
+@{
+    ViewBag.Title = "Создать тест";
+}
+
+<h2>Создать тест</h2>
+@using (Html.BeginForm("CreateTest", "Tests", FormMethod.Get))
+{
+    <div>Имя теста:</div>
+    <input type="text" name="NameTest" />
+
+    <div>Время для прохождения теста (мин)</div>
+    <input type="text" name="Time" />
+
+    <input type="submit" value="Далее" />
+}

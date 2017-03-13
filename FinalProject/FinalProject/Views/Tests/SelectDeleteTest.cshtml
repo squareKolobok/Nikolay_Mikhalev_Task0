@@ -1,0 +1,15 @@
+﻿@using DAL.Models
+@{
+    ViewBag.Title = "Удалить тест";
+}
+
+<h2>Тесты, созданные @User.Identity.Name</h2>
+@foreach (Test x in Model)
+{
+    <h5>
+        @Html.ActionLink(x.NameTest, "DeleteTest", "Tests", new { id = x.TestID }, null)
+    </h5>
+    <div>Колличество вопросов: @x.Count</div>
+    <div>Время для прохождения: @x.Time</div>
+    <div>Автор: @x.User</div>
+}

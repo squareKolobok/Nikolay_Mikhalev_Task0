@@ -1,0 +1,7 @@
+﻿@{
+    ViewBag.Title = "Результат теста";
+}
+
+<h2>Результат:</h2>
+<div>Время прохождения теста: @((int)Model.Time / 60):@(Model.Time % 60)</div>
+<div>Колличество правильных ответов: @Model.CountTrueAnswers</div>

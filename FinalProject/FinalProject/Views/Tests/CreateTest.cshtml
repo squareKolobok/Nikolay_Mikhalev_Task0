@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "CreateTest";
+}
+
+<h2>Данные вопроса</h2>
+@using (Html.BeginForm("CreateTest", "Tests", FormMethod.Post))
+{
+    <div>Текст вопроса</div>
+    <input type="text" name="QuestionText" />
+
+    <div>Текст ответа</div>
+    <input type="text" name="AnswerText" />
+    <input type="radio" name="IsRight" value="0" checked />
+
+    <div>Текст ответа</div>
+    <input type="text" name="AnswerText" />
+    <input type="radio" name="IsRight" value="1" />
+
+    <div>Текст ответа</div>
+    <input type="text" name="AnswerText" />
+    <input type="radio" name="IsRight" value="2" />
+
+    <div>Текст ответа</div>
+    <input type="text" name="AnswerText" />
+    <input type="radio" name="IsRight" value="3" />
+
+    <input type="submit" value="Следующий вопрос" />
+}
+@using (Html.BeginForm("EndCreateTest", "Tests", FormMethod.Post))
+{
+    <div>Если нажать кнопку закончить, то текущее окно не сохраниться </div>
+    <input type="submit" value="Закончить" />
+}

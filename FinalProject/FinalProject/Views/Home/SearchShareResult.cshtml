@@ -1,0 +1,22 @@
+﻿@using DAL.Models
+@{
+    ViewBag.Title = "Выбор теста и пользоватяля";
+}
+
+<h2>Выбор теста и пользоватяля</h2>
+@using (Html.BeginForm("ShareResult", "Tests", FormMethod.Post))
+{
+    <div>ID теста:</div>
+    <input type="text" name="id"/>
+    <div>Пользователь:</div>
+    <input type="text" name="User"/>
+    <input type="submit" value="Отправить"/>
+}
+@foreach (Test x in Model)
+{
+    <div>@x.NameTest</div>
+    <div>ID теста: @x.TestID</div>
+    <div>Колличество вопросов: @x.Count</div>
+    <div>Время для прохождения: @x.Time</div>
+    <div>Автор: @x.User</div>
+}

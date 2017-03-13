@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Подробная информация";
+}
+
+<h2>Подробная информация по тесту</h2>
+<table>
+    <tr>
+        <td>Текст вопроса</td>
+        <td>правильно/неправильно</td>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Text</td>
+            <td>@x.IsRight</td>
+        </tr>
+    }
+</table>

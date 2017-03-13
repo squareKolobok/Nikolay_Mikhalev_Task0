@@ -1,0 +1,18 @@
+﻿@using DAL.Models
+@{
+    ViewBag.Title = "Смена прав пользователя";
+}
+
+<h2>Смена прав пользователя</h2>
+<div>@ViewBag.Message</div>
+@using (Html.BeginForm("ChangeAccess", "Home", FormMethod.Post))
+{
+    <select name="newRole">
+        <option value="@Role.Administrator">Administrator</option>
+        <option value="@Role.Moderator">Moderator</option>
+        <option value="@Role.User">User</option>
+    </select>
+    <div>Имя пользователя</div>
+    <input type="text" name="Name">
+    <input type="submit" value="Отправить" />
+}

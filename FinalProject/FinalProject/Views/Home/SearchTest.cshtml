@@ -1,0 +1,15 @@
+﻿@using DAL.Models
+@{
+    ViewBag.Title = "Найденные тесты";
+}
+
+<h2>Найденные тесты</h2>
+@foreach(Test x in Model)
+{
+    <h5>
+        @Html.ActionLink(x.NameTest, "SelectTest", "Tests", new { id = x.TestID}, null)
+    </h5>
+    <div>Колличество вопросов: @x.Count</div>
+    <div>Время для прохождения: @x.Time</div>
+    <div>Автор: @x.User</div>
+}

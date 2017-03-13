@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNet.Identity
+<div class="login">
+    @if (User.Identity.IsAuthenticated)
+    {
+        using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <ul>
+                <li>@User.Identity.GetUserName()</li>
+                <li>@Html.ActionLink("Изменить пароль", "ChangePassword", "Account")</li>
+                <li>@Html.ActionLink("Выйти", "Logout", "Account")</li>
+            </ul>
+        }
+    }
+    else
+    {
+        <ul>
+            <li>@Html.ActionLink("Выполнить вход", "Login", "Account")</li>
+            <li>@Html.ActionLink("Зарегистрироваться", "Registration", "Account")</li>
+        </ul>
+    }
+</div>

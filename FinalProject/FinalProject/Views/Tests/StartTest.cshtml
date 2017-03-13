@@ -1,0 +1,24 @@
+﻿@using DAL.Models;
+@{
+    ViewBag.Title = "Тест";
+}
+
+<h2>Тест</h2>
+<div>@Model.QuestionText</div>
+@using (Html.BeginForm("StartTest", "Tests", FormMethod.Post))
+{
+    foreach (Answer x in Model.Answers)
+    {
+        if (Model.TypeQuest == TypeQuestion.OneAnswer)
+        {
+            <input type="radio" name="Answer" class="left" value="@x.AnswerID" />
+            <div>@x.AnswerText</div>
+        }
+        if (Model.TypeQuest == TypeQuestion.MultiAnswer)
+        {
+            <input type="checkbox" name="Answer" class="left" value="@x.AnswerID" />
+            <div>@x.AnswerText</div>
+        }
+    }
+    <input type="submit" value="дальше" />
+}

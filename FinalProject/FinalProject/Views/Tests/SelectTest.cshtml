@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Тест: " + Model.NameTest;
+}
+
+<h2>Тест: @Model.NameTest</h2>
+<div>Колличество вопросов в тесте: @Model.Count</div>
+<div>Время для прохождения теста: @((int)Model.Time / 60):@(Model.Time % 60)</div>
+<div>Автор теста: @Model.User</div>
+<div>Дата создания теста: @Model.Date</div>
+@using (Html.BeginForm("StartTest", "Tests", FormMethod.Get))
+{
+    <input type="submit" value="Начать тест">
+}
