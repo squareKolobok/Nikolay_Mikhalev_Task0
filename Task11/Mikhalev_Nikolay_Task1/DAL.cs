@@ -1,20 +1,21 @@
 ﻿namespace Mikhalev_Nikolay_Task1
 {
-    using ClassDAL;
+    using Models;
     using System;
     using System.Collections.Generic;
     using System.Configuration;
     using System.Data;
     using System.Data.SqlClient;
 
-    public class DAL : IDAL//todo следи, пожалуйста, за чистотой проекта в плане неиспользуемых файлов. ConsoleApplication1 явно лишнее. Лишние файлы в большом проекте это боль (никто не помнит, для чего они и боятся их трогать)...
+    public class DAL : IDAL
     {
 
-        public DAL()
+        public DAL(string connectionString)
         {
+            this.connectionString = connectionString;
         }
 
-        private string connectionString = ConfigurationManager.ConnectionStrings["NorthwindConection"].ConnectionString;//todo лучше с клиента получать строку подключения
+        private string connectionString;
 
         private void AddParameter<T>(IDbCommand command, string namePar, T value, DbType type)
         {
@@ -62,7 +63,6 @@
                 AddParameter<string>(command, "@SelShipCountry", NewOrder.ShipCounty ?? String.Empty, DbType.String);
 
                 int i = command.ExecuteNonQuery();
-                connection.Close();//todo секция using вызывает метод Close автоматом, так что можно не писать
             }
         }
 
@@ -78,12 +78,10 @@
                 var command = connection.CreateCommand();
                 DateTime date = DateTime.Now;
                 command.CommandText = "UPDATE Orders SET ShippedDate = CONVERT(datetime, '" +
-                    date.Year + "-" + date.Month + "-" + date.Day + " " +//todo так не пишут. Используй форматирование даты к определенному шаблону.
-                    date.Hour + ":" + date.Minute + ":" + date.Second + "." + date.Millisecond +
+                    date.ToString("s").Replace("T", " ") +
                     "', 121) WHERE OrderID = @SelectOrderId AND ShippedDate IS NULL AND NOT (OrderDate IS NULL)";
                 AddParameter<int>(command, "@SelectOrderId", OrderID, DbType.Int32);
                 int i = command.ExecuteNonQuery();
-                connection.Close();
             }
         }
 
@@ -99,12 +97,10 @@
                 var command = connection.CreateCommand();
                 DateTime date = DateTime.Now;
                 command.CommandText = "UPDATE Orders SET OrderDate = CONVERT(datetime, '" +
-                    date.Year + "-" + date.Month + "-" + date.Day + " " +
-                    date.Hour + ":" + date.Minute + ":" + date.Second + "." + date.Millisecond +
+                    date.ToString("s").Replace("T", " ") +
                     "', 121) WHERE OrderID = @SelectOrderId AND OrderDate IS NULL";
                 AddParameter<int>(command, "@SelectOrderId", OrderID, DbType.Int32);
                 int i = command.ExecuteNonQuery();
-                connection.Close();
             }
         }
 
@@ -125,7 +121,6 @@
                     list.Add(oh);
                 }
 
-                connection.Close();
                 return list;
             }
         }
@@ -144,24 +139,22 @@
                 while (reader.Read())
                 {
 
-                    string a = reader.GetString(0);//todo очень плохо давать непонятные имена переменным, даже временным.
+                    string a  = reader.GetString(0);
                     decimal b = reader.GetDecimal(1);
-                    int c = reader.GetInt16(2);
-                    int d = reader.GetInt32(3);
+                    int c     = reader.GetInt16(2);
+                    int d     = reader.GetInt32(3);
                     decimal e = reader.GetDecimal(4);
 
                     OrdersDetail od = new OrdersDetail(
-                        /*reader.GetString(0),
+                        reader.GetString(0),
                         reader.GetDecimal(1),
-                        reader.GetInt32(2),
+                        reader.GetInt16(2),
                         reader.GetInt32(3),
-                        reader.GetDecimal(4)*/
-                        a,b,c,d,e
+                        reader.GetDecimal(4)
                         );
                     list.Add(od);
                 }
 
-                connection.Close();
                 return list;
             }
         }
@@ -180,7 +173,7 @@
                 command.CommandText = "SELECT p.ProductID, p.ProductName, p.SupplierID, p.CategoryID, p.QuantityPerUnit, p.UnitPrice, p.UnitsInStock, " +
                     "p.UnitsOnOrder, p.ReorderLevel, p.Discontinued FROM " +
                     "Products p FULL JOIN [Order Details] od ON p.ProductID = od.ProductID FULL JOIN Orders o ON o.OrderID = od.OrderID " +
-                    "WHERE o.OrderID = @SelectOrderId";
+                    "WHERE o.OrderID = @SelectOrderId ORDER BY p.ProductID ASC";
                 AddParameter<int>(command, "@SelectOrderId", OrderID, DbType.Int32);
                 IDataReader reader = command.ExecuteReader();
                 List<Products> list = new List<Products>();
@@ -210,7 +203,6 @@
                     list.Add(p);
                 }
 
-                connection.Close();
                 return list;
             }
         }
@@ -225,7 +217,7 @@
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM Orders;";
+                command.CommandText = "SELECT * FROM Orders ORDER BY OrderID ASC";
                 IDataReader reader = command.ExecuteReader();
                 List<Order> list = new List<Order>();
 
@@ -264,7 +256,6 @@
                     list.Add(o);
                 }
 
-                connection.Close();
                 return list;
             }
         }

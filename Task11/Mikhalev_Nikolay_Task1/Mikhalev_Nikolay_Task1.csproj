@@ -41,22 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassDAL\Order.cs" />
-    <Compile Include="ClassDAL\OrderHist.cs" />
-    <Compile Include="ClassDAL\OrdersDetail.cs" />
-    <Compile Include="ClassDAL\Products.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderHist.cs" />
+    <Compile Include="Models\OrdersDetail.cs" />
+    <Compile Include="Models\Products.cs" />
     <Compile Include="DAL.cs" />
     <Compile Include="IDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ClassDAL\WorkEnum.cs" />
+    <Compile Include="Models\WorkEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

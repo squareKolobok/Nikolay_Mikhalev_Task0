@@ -1,6 +1,6 @@
 ﻿namespace Mikhalev_Nikolay_Task1
 {
-    using Mikhalev_Nikolay_Task1.ClassDAL;
+    using Mikhalev_Nikolay_Task1.Models;
     using System.Collections.Generic;
 
     public interface IDAL
