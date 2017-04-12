@@ -4,31 +4,50 @@
 }
 
 <h2>Данные вопроса</h2>
-@using (Html.BeginForm("CreateTest", "Tests", FormMethod.Post))
+@using (Html.BeginForm("CreateTest", "Tests", FormMethod.Post, new { id="formQuest"}))
 {
     <div>Текст вопроса</div>
     <input type="text" name="QuestionText" />
 
-    <div>Текст ответа</div>
-    <input type="text" name="AnswerText" />
-    <input type="radio" name="IsRight" value="0" checked />
+    <div id="typeQuestion">
+        <div>
+            Один верный ответ:
+            <input type="radio" name="TypeQuestion" value="1" checked />
+        </div>
+        <div>
+            Несколько верных ответов:
+            <input type="radio" name="TypeQuestion" value="2" />
+        </div>
+    </div>
 
-    <div>Текст ответа</div>
-    <input type="text" name="AnswerText" />
-    <input type="radio" name="IsRight" value="1" />
+    <div>
+        <input type="button" id="addAnswer" value="добавить ответ" />
+        <input type="button" id="delAnswer" value="удалить последний ответ" />
+    </div>
 
-    <div>Текст ответа</div>
-    <input type="text" name="AnswerText" />
-    <input type="radio" name="IsRight" value="2" />
+    <div id="answers">
+        <div>Текст ответа</div>
+        <input type="text" name="AnswerText" />
+        <input type="radio" name="IsRight" value="0" checked />
 
-    <div>Текст ответа</div>
-    <input type="text" name="AnswerText" />
-    <input type="radio" name="IsRight" value="3" />
+        <div>Текст ответа</div>
+        <input type="text" name="AnswerText" />
+        <input type="radio" name="IsRight" value="1" />
+
+        <div>Текст ответа</div>
+        <input type="text" name="AnswerText" />
+        <input type="radio" name="IsRight" value="2" />
+
+        <div>Текст ответа</div>
+        <input type="text" name="AnswerText" />
+        <input type="radio" name="IsRight" value="3" />
+    </div>
 
     <input type="submit" value="Следующий вопрос" />
+    <input type="submit" id="endTest" value="Закончить" />
 }
-@using (Html.BeginForm("EndCreateTest", "Tests", FormMethod.Post))
+@*@using (Html.BeginForm("EndCreateTest", "Tests", FormMethod.Post))
 {
     <div>Если нажать кнопку закончить, то текущее окно не сохраниться </div>
     <input type="submit" value="Закончить" />
-}
+}*@

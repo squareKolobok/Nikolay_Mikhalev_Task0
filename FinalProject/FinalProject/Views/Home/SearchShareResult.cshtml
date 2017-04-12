@@ -4,6 +4,9 @@
 }
 
 <h2>Выбор теста и пользоватяля</h2>
+<div>
+    @ViewBag.Message
+</div>
 @using (Html.BeginForm("ShareResult", "Tests", FormMethod.Post))
 {
     <div>ID теста:</div>

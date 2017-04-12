@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Создать заказ";
+}
+
+<h2>Создать заказ</h2>
+@using (Html.BeginForm("CreateOrder", "Order", FormMethod.Post))
+{
+    @Html.Partial("_OrderItems")
+    <input type="submit" value="Отправить"/>
+}

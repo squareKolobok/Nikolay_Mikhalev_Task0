@@ -1,0 +1,37 @@
+﻿@using DAL.Models
+@{
+    ViewBag.Title = "Детали заказа";
+}
+
+<h2>Детали заказа</h2>
+<div>Заказчик: @Model.CustomerID</div>
+<div>Исполнитель: @Model.EmployeeID</div>
+<div>Дата оформления заказа: @Model.OrderDate</div>
+<div>Дата выполнения заказа: @Model.ShippedDate</div>
+<div>Стоимость: @Model.Freight</div>
+<div>Имя получателя: @Model.ShipName</div>
+<div>Адрес: @Model.ShipAddress</div>
+<div>Город: @Model.ShipCity</div>
+<div>Регион: @Model.ShipRegion</div>
+<div>Почтовый индекс: @Model.ShipPostalCode</div>
+<div>Страна: @Model.ShipCounty</div>
+<table>
+    @foreach (Products x in Model.Prod)
+    {
+        <tr>
+            <td>@x.ProductName</td>
+            <td>@x.SupplierID</td>
+            <td>@x.CategoryID</td>
+            <td>@x.QuantityPerUnit</td>
+            <td>@x.UnitPrice</td>
+            <td>@x.UnitsInStock</td>
+            <td>@x.UnitsOnOrder</td>
+            <td>@x.ReorderLevel</td>
+            <td>@x.Discontinued</td>
+        </tr>
+    }
+</table>
+@using (Html.BeginForm("Update", "Order", new { order = Model, OrderID = Model.orderID }, FormMethod.Post, null))
+{
+    <input type="submit" value="дополнить" />
+}

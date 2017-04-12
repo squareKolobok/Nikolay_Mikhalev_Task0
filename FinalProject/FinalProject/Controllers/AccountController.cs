@@ -4,10 +4,10 @@
     using DAL;
     using App_Start;
     using FinalProject.Models;
-    using Infrostructure.Relase;
     using System.Web.Mvc;
+    using Infrostructure;
 
-    public class AccountController : AbstractController<ConcreteIdentity, Account, Role>
+    public class AccountController : AbstractController<MyIdentity>
     {
 
         private string connectionString = ConnectionStr.String;
@@ -41,7 +41,15 @@
             {
                 dal.CreateUser(Name, passwd1);
                 ViewBag.Message = "Пользователь создан";
-                return RedirectToAction("Login");
+                var account = new Account()
+                {
+                    Login = Name,
+                    Password = passwd2,
+                    role = Role.User
+                };
+                var auth = new Auth();
+                auth.Login(account);
+                return RedirectToAction("Welcome");
             }
             else
             {
@@ -71,8 +79,9 @@
                     Password = login.Password,
                     role = roleUser
                 };
-                var authorize = new ConcreteAuthorizeService();
-                authorize.SignIn(account, false);
+                var auth = new Auth();
+                auth.Login(account);
+                var k = User.Identity.IsAuthenticated;
             }
             else
             {
@@ -83,7 +92,6 @@
         }
 
         [Authorize]
-        //[ConcreteAuthintification]
         public ActionResult Welcome()
         {
             return View();
@@ -92,8 +100,8 @@
         [Authorize]
         public ActionResult Logout()
         {
-            var authorize = new ConcreteAuthorizeService();
-            authorize.SignOut();
+            var auth = new Auth();
+            auth.Logout();
             return RedirectToAction("Index", "Home");
         }
 

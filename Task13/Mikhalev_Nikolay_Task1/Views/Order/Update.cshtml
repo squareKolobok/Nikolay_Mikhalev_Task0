@@ -1,0 +1,85 @@
+﻿@using DAL.Models
+@{
+    Order ord = Model.order;
+    ViewBag.Title = "Дополнить детали заказа";
+}
+<h2>Дополнить детали заказа</h2>
+
+@if (ord.OrderDate == null || ord.OrderDate == DateTime.MinValue)
+{
+    using (Html.BeginForm("WorkTime", "Order", new { OrderID = ord.orderID }, FormMethod.Post, null))
+    {
+        <input type="submit" value="заказ поступил в работу"/>
+    }
+}
+
+@if (ord.OrderDate != null && ord.OrderDate != DateTime.MinValue && (ord.ShippedDate == null || ord.ShippedDate == DateTime.MinValue))
+{
+    using (Html.BeginForm("MadeTime", "Order", new { OrderID = ord.orderID }, FormMethod.Post, null))
+    {
+        <input type="submit" value="заказ выполнен" />
+    }
+}
+
+@using (Html.BeginForm("Update", "Order", new { OrderID = ord.orderID }, FormMethod.Post, null))
+{
+    <div>Заказчик</div>
+    <select name="order.CustomerID">
+        @foreach (string x in Model.CustomerID)
+        {
+            <option value="@x">@x</option>
+        }
+    </select>
+
+    <div>Исполнитель</div>
+    <select name="order.EmployeeID">
+        @foreach (int x in Model.EmployeeID)
+        {
+            <option value="@x">@x</option>
+        }
+    </select>
+
+    if (ord.Freight == null || ord.Freight == 0)
+    {
+        <div>Стоимость</div>
+        <input type="text" name="order.Freight" />
+    }
+
+    if (ord.ShipAddress == null || ord.ShipAddress.Equals(String.Empty))
+    {
+        <div>Адрес</div>
+        <input type="text" name="order.ShipAddress" />
+    }
+
+    if (ord.ShipCity == null || ord.ShipCity.Equals(String.Empty))
+    {
+        <div>Город</div>
+        <input type="text" name="order.ShipCity" />
+    }
+
+    if (ord.ShipCounty == null || ord.ShipCounty.Equals(String.Empty))
+    {
+        <div>Страна</div>
+        <input type="text" name="order.ShipCounty" />
+    }
+
+    if (ord.ShipName == null || ord.ShipName.Equals(String.Empty))
+    {
+        <div>Получатель</div>
+        <input type="text" name="order.ShipName" />
+    }
+
+    if (ord.ShipPostalCode == null || ord.ShipPostalCode.Equals(String.Empty))
+    {
+        <div>Почтовый код</div>
+        <input type="text" name="order.ShipPostalCode" />
+    }
+
+    if (ord.ShipRegion == null || ord.ShipRegion.Equals(String.Empty))
+    {
+        <div>Регион</div>
+        <input type="text" name="order.ShipRegion" />
+    }
+
+    <input type="submit" value="Отправить" />
+}

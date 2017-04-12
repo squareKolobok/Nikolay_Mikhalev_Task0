@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E6C037DA-D981-4C49-BA27-31D4AFC0F9E1}</ProjectGuid>
+    <ProjectGuid>{BB2DB3F0-75BC-4462-91DB-4424CCE53658}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FinalProject</RootNamespace>
-    <AssemblyName>FinalProject</AssemblyName>
+    <RootNamespace>Mikhalev_Nikolay_Task1</RootNamespace>
+    <AssemblyName>Mikhalev_Nikolay_Task1</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -71,12 +71,6 @@
       <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Core">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Core.resources">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\ru\Microsoft.AspNet.Identity.Core.resources.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -123,31 +117,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\glass.png" />
-    <Content Include="Content\Main.css" />
     <Content Include="Global.asax" />
-    <Content Include="js\main.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\ConnectionStr.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AbstractController.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="App_Start\StringDAL.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TestsController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrostructure\Auth.cs" />
-    <Compile Include="Infrostructure\AuthAttribute.cs" />
-    <Compile Include="Infrostructure\ConvertRoleToString.cs" />
-    <Compile Include="Infrostructure\IAuth.cs" />
-    <Compile Include="Infrostructure\MyAuthModel.cs" />
-    <Compile Include="Infrostructure\MyIdentity.cs" />
-    <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Login.cs" />
-    <Compile Include="Models\ShareRes.cs" />
+    <Compile Include="Models\CusEmpOrd.cs" />
+    <Compile Include="Models\CustEmplID.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -156,27 +138,15 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_LoginPart.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Account\Welcome.cshtml" />
-    <Content Include="Views\Account\Registration.cshtml" />
-    <Content Include="Views\Shared\_Menu.cshtml" />
-    <Content Include="Views\Home\SearchTest.cshtml" />
-    <Content Include="Views\Tests\SelectTest.cshtml" />
-    <Content Include="Views\Tests\StartTest.cshtml" />
-    <Content Include="Views\Tests\EndTest.cshtml" />
-    <Content Include="Views\Tests\TestResult.cshtml" />
-    <Content Include="Views\Tests\ShareResult.cshtml" />
-    <Content Include="Views\Home\SearchShareResult.cshtml" />
-    <Content Include="Views\Home\ChangeAccess.cshtml" />
-    <Content Include="Views\Account\ChangePassword.cshtml" />
-    <Content Include="Views\Tests\SelectDeleteTest.cshtml" />
-    <Content Include="Views\Tests\SelectCreateTest.cshtml" />
-    <Content Include="Views\Tests\CreateTest.cshtml" />
-    <Content Include="Views\Tests\EndCreateTest.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_MenuPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Order\ViewOrder.cshtml" />
+    <Content Include="Views\Order\CreateOrder.cshtml" />
+    <Content Include="Views\Order\_OrderItems.cshtml" />
+    <Content Include="Views\Order\Update.cshtml" />
+    <Content Include="Views\Order\SelectOrder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -186,10 +156,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\" />
+    <Folder Include="fonts\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{A6E75B01-F33F-46B3-A876-096FDCA4CC03}</Project>
+      <Project>{1D6402A9-1B36-4C3B-ADBB-034003D9AADD}</Project>
       <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
@@ -206,9 +179,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49511</DevelopmentServerPort>
+          <DevelopmentServerPort>49283</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49511/</IISUrl>
+          <IISUrl>http://localhost:49283/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -4,16 +4,23 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="~/Content/Main.css">
+    <script type="text/javascript" src="~/js/main.js"></script>
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div class="main">
-        <div>
-            @Html.ActionLink("Сервис проверки знаний", "Index", "Home")
-        </div>
-        <div>
-            @Html.Partial("_Menu")
+
+    <div>
+        
+        <div class="menu">
             @Html.Partial("_LoginPart")
+            @Html.Partial("_Menu")
+        </div>
+        <div class="search">
+            @using (Html.BeginForm("SearchTest", "Home", FormMethod.Get))
+            {
+                <input type="submit" class="searchBut" value=""/>
+                <input type="text" name="NameTest" class="searchText" placeholder="Поиск" id="NameTest" value="" />
+            }
         </div>
         <div class="data">
             @RenderBody()

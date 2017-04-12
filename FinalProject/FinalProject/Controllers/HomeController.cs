@@ -1,6 +1,7 @@
 ﻿using DAL;
 using DAL.Models;
 using FinalProject.App_Start;
+using FinalProject.Infrostructure;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -32,6 +33,7 @@ namespace FinalProject.Controllers
         }
 
         [AllowAnonymous]
+        [Auth (Roles = "Moderator")]
         public ActionResult SearchShareResult()
         {
             TestDAL dal = new TestDAL(connectionString);
@@ -39,8 +41,8 @@ namespace FinalProject.Controllers
             return View(result);
         }
 
-        [Authorize]
         [HttpGet]
+        [Auth (Roles = "Administrator")]
         public ActionResult ChangeAccess()
         {
             return View();
@@ -48,6 +50,7 @@ namespace FinalProject.Controllers
 
         [Authorize]
         [HttpPost]
+        [Auth(Roles = "Administrator")]
         public ActionResult ChangeAccess(Role newRole, string Name)
         {
             TestDAL dal = new TestDAL(connectionString);

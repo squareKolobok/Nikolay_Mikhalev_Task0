@@ -1,0 +1,28 @@
+﻿<div>Заказчик</div>
+<select name="order.CustomerID">
+    @foreach(string x in Model.CustomerID)
+    {
+        <option value="@x">@x</option>
+    }
+</select>
+<div>Исполнитель</div>
+<select name="order.EmployeeID" >
+    @foreach(int x in Model.EmployeeID)
+    {
+        <option value="@x">@x</option>
+    }
+</select>
+<div>Стоимость</div>
+<input type="text" name="order.Freight" />
+<div>Адрес</div>
+<input type="text" name="order.ShipAddress" />
+<div>Город</div>
+<input type="text" name="order.ShipCity" />
+<div>Страна</div>
+<input type="text" name="order.ShipCounty" />
+<div>Получатель</div>
+<input type="text" name="order.ShipName" />
+<div>Почтовый код</div>
+<input type="text" name="order.ShipPostalCode" />
+<div>Регион</div>
+<input type="text" name="order.ShipRegion" />

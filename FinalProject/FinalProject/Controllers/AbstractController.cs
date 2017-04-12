@@ -1,14 +1,11 @@
 ﻿namespace FinalProject.Controllers
 {
-    using Models.Abstract;
+    using Infrostructure;
     using System;
     using System.Web.Mvc;
 
-    //TIdenty - Тип реализованого класса идентификации
-    //TAccount -   Тип аккаунта в бизнес логике.
-    //TRole - Тип роли.
-    public abstract class AbstractController<TIdenty, TAccount, TRole> : Controller
-          where TIdenty : AbstractIdentity<TAccount, TRole>
+    public abstract class AbstractController<TIdenty> : Controller
+          where TIdenty : MyIdentity
     {
         protected AbstractController()
         {

@@ -1,0 +1,40 @@
+﻿@using DAL.Models
+@{
+    ViewBag.Title = "Все заказы";
+}
+
+<h2>Список всех заказов</h2>
+<table>
+    <tr>
+        <td>Заказчик</td>
+        <td>Статус заказа</td>
+        <td>Дата</td>
+        <td>Сумма</td>
+        <td>Посмотреть</td>
+    </tr>
+    @foreach (Order x in Model)
+    {
+        string text;
+
+        switch (x.Status)
+        {
+            case WorkEnum.New:
+                text = "Новый";
+                break;
+            case WorkEnum.InTheWork:
+                text = "В работе";
+                break;
+            default:
+                text = "Выполнен";
+                break;
+        }
+
+        <tr>
+            <td>@x.CustomerID</td>
+            <td>@text</td>
+            <td>@x.OrderDate</td>
+            <td>@x.Freight</td>
+            <td>@Html.ActionLink("посмотреть", "SelectOrder", "Order", new { OrderID = x.orderID}, null)</td>
+        </tr>
+    }
+</table>

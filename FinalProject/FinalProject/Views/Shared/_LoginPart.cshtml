@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
-<div class="login">
+<div class="top">
     @if (User.Identity.IsAuthenticated)
     {
         using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
@@ -8,16 +8,16 @@
 
             <ul>
                 <li>@User.Identity.GetUserName()</li>
-                <li>@Html.ActionLink("Изменить пароль", "ChangePassword", "Account")</li>
-                <li>@Html.ActionLink("Выйти", "Logout", "Account")</li>
+                <li>@Html.ActionLink("Изменить пароль", "ChangePassword", "Account", null, new { id = "topBut"})</li>
+                <li>@Html.ActionLink("Выйти", "Logout", "Account", null,  new { id = "topBut" })</li>
             </ul>
         }
     }
     else
     {
         <ul>
-            <li>@Html.ActionLink("Выполнить вход", "Login", "Account")</li>
-            <li>@Html.ActionLink("Зарегистрироваться", "Registration", "Account")</li>
+            <li>@Html.ActionLink("Выполнить вход", "Login", "Account", null, new { id = "topBut" })</li>
+            <li>@Html.ActionLink("Зарегистрироваться", "Registration", "Account", null, new { id = "topBut" })</li>
         </ul>
     }
 </div>

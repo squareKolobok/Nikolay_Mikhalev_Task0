@@ -1,24 +1,92 @@
 ﻿.menu{
+    left:0;
+    top: 0;
+    position:fixed;
+    background-color:rgb(3, 169, 245);
 	width: 200px;
-	height: inherit;
-	float: left;
-	margin-right: 10px;
-}
-
-.login{
-	height: inherit;
-	width: 200px;
-	float: right;
-	margin-left: 10px;
-}
-
-.main{
 	height: 100%;
+	float: left;
+	margin-left: 0px;
+    margin-top: 0px;
+}
+
+.top{
+    height: 70px;
+}
+
+.top li{
+    margin-top: 5px;
+}
+
+#topBut{
+    font-size:18px;
+    height: 25px;
+    color: rgb(255,255,255);
+    border: 1px solid rgb(255,255,255);
+    border-radius: 6px 6px;
+    text-decoration: none;
+}
+
+#topBut:hover{
+    color: rgb(0,0,0);
+}
+
+#topBut:active{
+    color: rgb(0,0,0);
+    background-color: rgb(30, 200, 245);
 }
 
 .left{
     float: left;
 }
+
 .data{
+    margin-top: 25px;
+    margin-left: 230px;
     float: left;
+}
+
+.search{
+    left:200px;
+    top:0%;
+    position:fixed;
+    background-color: rgb(2, 136, 209);
+    height:30px;
+    width: 100%;
+    padding: 0;
+}
+
+.searchBut {
+    float: left;
+    border: none;
+    background-color: rgb(2, 136, 209);
+    background-image: url('glass.png');
+    background-repeat: no-repeat;
+    width: 28px;
+    height: 30px;
+    bottom: 0;
+}
+
+.searchBut:hover{
+    background-color: rgb(30, 136, 255);
+}
+
+.searchBut:active{
+    background-color: rgb(30, 186, 180);
+}
+
+.searchText{
+    background-color: rgb(2, 136, 209);
+    border: none;
+    height: 28px;
+    width: 60%;
+}
+
+body{
+    background-color: rgb(250, 250, 250);
+    padding-left: 0px;
+}
+
+ul{
+    list-style-type: none;
 }
